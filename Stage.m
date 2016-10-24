@@ -38,17 +38,17 @@ function [net] = Stage(stageNum)
     c2z_weight = cell(stageNum,1);
     z2x_weight = cell(stageNum,1); 
     
-    net = setfield(net,'reconstructionLaryer',reconstructionLaryer);
-    net = setfield(net,'multiplierUpdateLayer',multiplierUpdateLayer);
-    net = setfield(net,'nonlinerTransformLayer',nonlinerTransformLayer);
-    net = setfield(net,'convolutionLayer',convolutionLayer);
-    net = setfield(net,'m2x_weight',m2x_weight);
-    net = setfield(net,'m2c_weight',m2c_weight);
-    net = setfield(net,'m2m_weight',m2m_weight);
-    net = setfield(net,'c2m_weight',c2m_weight);
-    net = setfield(net,'z2z_weight',z2z_weight);
-    net = setfield(net,'x2c_weight',x2c_weight);
-    net = setfield(net,'c2z_weight',c2z_weight);
-    net = setfield(net,'z2x_weight',z2x_weight);
-    
+    net.reconstructionLaryer = reconstructionLaryer;
+    net.multiplierUpdateLayer = multiplierUpdateLayer;
+    net.nonlinerTransformLayer = nonlinerTransformLayer;
+    net.convolutionLayer = convolutionLayer;
+    net.m2x_weight = m2x_weight;
+    net.m2c_weight = m2c_weight;
+    net.m2m_weight = m2m_weight;
+    net.c2m_weight = c2m_weight;
+    net.z2z_weight = z2z_weight;
+    net.x2c_weight = x2c_weight;
+    net.c2z_weight = c2z_weight;
+    net.z2x_weight = z2x_weight;
+ 
 end
