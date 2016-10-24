@@ -6,6 +6,6 @@
 %  Copyright (C) 2016 Deep ADMM NETWORK. SCU. All rights reserved.
 
 
-function g = NonlinearTransformLayer(z)
+function z_n = NonlinearTransformLayer(c_n,beta)
 
 end

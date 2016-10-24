@@ -13,6 +13,6 @@ function c_n = ConvolutionLayer(x_n,D,L)
 for l = 1:L
     c_n(l) = D(l)*x_n;
 end
-
-%Tips: This function is likely to be rewrite using matrix multiplication
-%But I just coded it according to the paper's formula.
+%发现的小问题：可能直接通过矩阵乘法就可以实现了，但我先按照paper里的公式写。
+%后面或许可以改进。
+%Tips: This function is likely to be rewrite using matrix multiply
