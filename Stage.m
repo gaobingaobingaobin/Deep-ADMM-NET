@@ -6,7 +6,7 @@
 %  Copyright (C) 2016 Deep ADMM NETWORK. SCU. All rights reserved.
 
 % Function Stage return state of ADDM network
-%	stageNum  the number of stage
+%   stageNum  the number of stage
 
 function [net] = Stage(stageNum)
     % net is a struct taht contains all info of ADMM Net
@@ -25,7 +25,7 @@ function [net] = Stage(stageNum)
     
     net = struct;
     
-	reconstructionLaryer = cell(stageNum+1,1); %X
+    reconstructionLaryer = cell(stageNum+1,1); %X
     multiplierUpdateLayer = cell(stageNum,1); %M
     nonlinerTransformLayer = cell(stageNum,1); %Z
     convolutionLayer = cell(stageNum,1); %C
