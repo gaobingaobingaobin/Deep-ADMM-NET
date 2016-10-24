@@ -5,5 +5,5 @@
 %  Created by Wang Han.SCU on 22/10/16.
 %  Copyright (C) 2016 Deep ADMM NETWORK. SCU. All rights reserved.
 
-function [] = ADMMNetCostFunction()
+function [J grad] = ADMMNetCostFunction()
 end
