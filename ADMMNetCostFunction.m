@@ -6,4 +6,5 @@
 %  Copyright (C) 2016 Deep ADMM NETWORK. SCU. All rights reserved.
 
 function [J grad] = ADMMNetCostFunction()
+%%%
 end
