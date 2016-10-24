@@ -12,7 +12,7 @@ function z_n = NonlinearTransformLayer(c_n,last_beta,q,L)
 % last_beta is the value of n-1 th Multiplier update Layer
 % q is a Nc*L matrix deciding the values in y axis of PLF
 % L is the number of z in column, which has been definited before.
-for l =1:L
-  z_n(l) = PLF(c_n(l)+last_beta(l));
-end
+    for l =1:L
+        z_n(l) = PLF(c_n(l)+last_beta(l));
+    end
 end
