@@ -6,13 +6,13 @@
 %  Copyright (C) 2016 Deep ADMM NETWORK. SCU. All rights reserved.
 
 function x_n = ReconstructionLayer(F,P,H_n,last_z,y,ro_n,last_beta)
-%This function is aim to calculate the X in the X layer
+%This function is aim to calculate the x in the Reconstruction Layer
 
 % input : F is a Fourier transform, size N'*N ; P is a under-samping matrix;
 % while A = P*F,size N'*N; 
 % H is a transform matrix for a filtering operation
 % last_z is the collection of auxiliary variables,z={z1,z2,...,zL} 
-% and the z in the LAST Nonlinear transform layer
+% and the z in the n-1 th Nonlinear transform layer
 % y is the under-sampled k-space data
 % last_beta is the beta in the LAST Multiplier update layer
 % ro_n are penalty parameters, which should be learned by the net.

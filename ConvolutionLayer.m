@@ -5,13 +5,13 @@
 %  Created by Wang Han.SCU on 22/10/16.
 %  Copyright (C) 2016 Deep ADMM NETWORK. SCU. All rights reserved.
 
-function c_n = ConvolutionLayer(x_n,D,L)
-%this function is aim to calculate the value in the n th Convolution layer
+function c_n = ConvolutionLayer(x_n,D_n,L)
+%this function is aim to calculate the c in the n th Convolution layer
 %input: x_n is the value from the n th reconstuction layer
 %D is a transform matrix for a filtering operation such as DWT,DCT.
 %L is the number of z in column, which has been definited before.
 for l = 1:L
-    c_n(l) = D(l)*x_n;
+    c_n(l) = D_n(l)*x_n;
 end
 
 %Tips: This function is likely to be rewrite using matrix multiplication
