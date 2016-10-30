@@ -21,7 +21,7 @@ function [beta2eta_gradient,beta2beta_gradient,...
     % c_n is the return value of n th Convolution Layer
     % z_n is the return value of n th Nonlinear Transform Layer
     % L is the number of z in column, which has been definited before
-    I_n = eye(size(beta_n,1)) %I_n is an identity matrix sized N x N
+    I_n = eye(size(beta_n,1)); %I_n is an identity matrix sized N x N
     for l = 1:L
         beta2eta_gradient(l) = c_n(l) - z_n(l);
         beta2beta_gradient(l) = I_n;

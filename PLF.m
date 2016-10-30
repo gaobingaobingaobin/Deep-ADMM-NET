@@ -18,13 +18,18 @@ for i = 1:L
   p(i) = -1+(i-1)*step; %get the x axis
 end
 for i = 1:x_length
-  for j = 1:L-1
-    if x(i)>=p(L) && x(i)<p(L+1)
-      output(i) = (x(i)-P(L))/step * (q_l(L+1) + q_l(L));%compute each output
+  if x(i)<-1
+      output(i) = q_l(1)+(1+x(i0)*(q_l(2)-q_l(1))/step;
+  elseif x(i)>1
+      output(i) = (q_l(L)-q_l(L-1))*(x-1)/step+q_l(L);
+  else
+    for j = 1:L-1
+        if x(i)>=p(j) && x(i)<p(j+1)
+        output(i) = (x(i)-P(j))/step * (q_l(j+1) + q_l(j));%compute each output
+        end
     end
   end
 end
 
 end
 %Tips: This PLF is simply implmented in for-loop.
-%A question should be solved: how to make sure that the x is in (-1,1)?
