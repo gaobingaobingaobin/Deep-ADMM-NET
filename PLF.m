@@ -19,14 +19,14 @@ for i = 1:L
 end
 for i = 1:x_length
   if x(i)<-1
-      output(i) = q_l(1)+(1+x(i0)*(q_l(2)-q_l(1))/step;
+         output(i) = q_l(1)+(1+x(i0)*(q_l(2)-q_l(1))/step;
   elseif x(i)>1
-      output(i) = (q_l(L)-q_l(L-1))*(x-1)/step+q_l(L);
+         output(i) = (q_l(L)-q_l(L-1))*(x-1)/step+q_l(L);
   else
     for j = 1:L-1
-        if x(i)>=p(j) && x(i)<p(j+1)
-        output(i) = (x(i)-P(j))/step * (q_l(j+1) + q_l(j));%compute each output
-        end
+         if x(i)>=p(j) && x(i)<p(j+1)
+         output(i) = (x(i)-P(j))/step * (q_l(j+1) + q_l(j));%compute each output
+         end
     end
   end
 end
