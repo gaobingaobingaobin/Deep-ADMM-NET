@@ -10,5 +10,4 @@ img = imread('image2/IM-0001-0001.jpg');
 img = rgb2gray(img);
 img_k_space = real(fft2(img));
 
-net = Stage(3);
-net.reconstructionLaryer(1) = {img_k_space};
+
