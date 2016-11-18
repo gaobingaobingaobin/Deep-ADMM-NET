@@ -14,6 +14,8 @@ function output = PLF (x,q_l)
 L = size(q_l,1);%length of q_l
 x_length = size(x,1);%length of x
 step = 2/(L-1);
+p = zeros(1,L);
+output = zeros(1,L);
 for i = 1:L
   p(i) = -1+(i-1)*step; %get the x axis
 end
