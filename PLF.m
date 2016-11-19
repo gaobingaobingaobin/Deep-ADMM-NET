@@ -11,11 +11,11 @@ function output = PLF (x,q_l)
 % input: x is the origin input matrix, which specifically refers to the (c_n+last_beta)
 % q is a Nc*1 vector deciding the value in y axis of PLF
 % the x axis of PLF is a Nc*1 vector deviding (-1,1) by the average distance
-L = size(q_l,1);%length of q_l
+L = size(q_l,2);%length of q_l
 x_length = size(x,1);%length of x
 step = 2/(L-1);
 p = zeros(1,L);
-output = zeros(1,L);
+output = zeros(L,1);
 for i = 1:L
   p(i) = -1+(i-1)*step; %get the x axis
 end
