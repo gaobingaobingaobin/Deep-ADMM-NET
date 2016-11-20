@@ -10,7 +10,7 @@ function [net] = RandInitWeights(net)
     % initialize M layer to X layer weights
     for i = 1:size(net.q,1)
         for j = 1:size(net.q,2)
-            net.q(i,j) = {sft_threshold_func(10,0.01,1)}; 
+            net.q(i,j) = {sft_threshold_func(10,0.01,0.0001)}; 
         end
     end
 

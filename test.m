@@ -8,7 +8,7 @@ img = imresize(img,0.125);
 
 
 P = UnderSamplingMatrix(2,size(img,1),size(img,2));
-
+P = eye(4096);
 
 x =double(reshape(img,[],1));
 
