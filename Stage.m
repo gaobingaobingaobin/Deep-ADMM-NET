@@ -8,8 +8,13 @@
 % Function Stage return state of ADDM network
 %   stageNum  the number of stage
 
-function [net] = Stage(stageNum)
+function [net] = Stage(N,L,image_length)
     % net is a struct taht contains all info of ADMM Net
+    % 
+    % N is the number of stage
+    % L is the number of collector for each stage
+    % image_length is the length of input image
+    % 
     % reconstructionLaryer is X
     % multiplierUpdateLayer is M
     % nonlinerTransformLayer is Z
@@ -23,32 +28,29 @@ function [net] = Stage(stageNum)
     % c2z_weight is the weight between C(i) layer to Z(i) layer
     % z2x_weight is the weight between Z(i) layer to Z(i+1) layer
     
+    % four layers
+    reconstructionLaryer = cell(N+1,1); %X
+    multiplierUpdateLayer = cell(N,1); %M
+    nonlinerTransformLayer = cell(N,1); %Z
+    convolutionLayer = cell(N,1); %C
+    
+    % seven parameters
+    q = cell(N,L);  
+    D = cell(N,L); 
+    H = cell(N+1,L); 
+    rho = cell(N+1,L);
+    eta = cell(N,L); 
+    
+    % init net
     net = struct;
-    
-    reconstructionLaryer = cell(stageNum+1,1); %X
-    multiplierUpdateLayer = cell(stageNum,1); %M
-    nonlinerTransformLayer = cell(stageNum,1); %Z
-    convolutionLayer = cell(stageNum,1); %C
-    m2x_weight = cell(stageNum-1,1);  
-    m2c_weight = cell(stageNum-1,1); 
-    m2m_weight = cell(stageNum-1,1); 
-    c2m_weight = cell(stageNum,1);
-    z2z_weight = cell(stageNum,1);
-    x2c_weight = cell(stageNum,1); 
-    c2z_weight = cell(stageNum,1);
-    z2x_weight = cell(stageNum,1); 
-    
     net.reconstructionLaryer = reconstructionLaryer;
     net.multiplierUpdateLayer = multiplierUpdateLayer;
     net.nonlinerTransformLayer = nonlinerTransformLayer;
     net.convolutionLayer = convolutionLayer;
-    net.m2x_weight = m2x_weight;
-    net.m2c_weight = m2c_weight;
-    net.m2m_weight = m2m_weight;
-    net.c2m_weight = c2m_weight;
-    net.z2z_weight = z2z_weight;
-    net.x2c_weight = x2c_weight;
-    net.c2z_weight = c2z_weight;
-    net.z2x_weight = z2x_weight;
- 
+    net.q = q;
+    net.D = D;
+    net.H = H;
+    net.rho = rho;
+    net.eta = eta;
+    net.image_length = image_length;
 end
