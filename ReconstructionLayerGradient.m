@@ -5,7 +5,7 @@
 %  Created by Wang Han.SCU on 22/10/16.
 %  Copyright (C) 2016 Deep ADMM NETWORK. SCU. All rights reserved.
 
-function [x2beta_weight,x2z_weight] = ReconstructionLayerGradient(F,H_n,P,L,rho_n)
+function [x2beta_gradient,x2z_gradient] = ReconstructionLayerGradient(F,H_n,P,L,rho_n)
 % This function is aim to calculate the beta in the Reconstruction Layer
 % input:
 %F is a Fourier transform, size N'*N ; 
@@ -18,11 +18,11 @@ function [x2beta_weight,x2z_weight] = ReconstructionLayerGradient(F,H_n,P,L,rho_
 I_n = eye(size(beta_n,1)); %I_n is an identity matrix sized N x N
 temp_sum = 0;% sum in the formula
 for l  =1:L
-    temp_sum=temp_sum+rho_n(l)*F*H_n(l)'*F';
+    temp_sum=temp_sum+rho_n{l}*F*H_n{l}'*F';
 end
 
 Q = (P'*P+temp_sum)^(-1);
 for l = 1:L
-    x2beta_weight(l) = -rho_n(l)*F'*Q*H_n(l)'*I_n;
-    x2z_weight(l) = rho_n(l)*F'*Q*H_n(l)'*I_n;
+    x2beta_gradient(l) = -rho_n{l}*F'*Q*H_n(l)'*I_n;
+    x2z_gradient(l) = rho_n(l)*F'*Q*H_n(l)'*I_n;
 end
