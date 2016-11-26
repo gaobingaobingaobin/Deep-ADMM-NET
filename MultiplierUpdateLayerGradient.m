@@ -5,9 +5,9 @@
 %  Created by Wang Han.SCU on 22/10/16.
 %  Copyright (C) 2016 Deep ADMM NETWORK. SCU. All rights reserved.
 
-function [beta2eta_gradient,beta2beta_gradient,...
-    beta2c_gradient,beta2z_gradient] = MultiplierUpdateLayerGradient(...
-        eta_n,beta_n,c_n,z_n,L)
+function [beta_gradient,eta_gradient] = MultiplierUpdateLayerGradient(...
+        eta_n,c_n,z_n,L,x_next_gradient,x_next2beta_gradient,beta_next_gradient,...
+        beta_next2beta_gradient,z_next_gradient,z_next2beta_gradient,is_N)
 
     % This function is aimed to compute gradient in multiplier update layer
     % output:
@@ -27,11 +27,20 @@ function [beta2eta_gradient,beta2beta_gradient,...
     beta2beta_gradient = cell(length,1);
     beta2c_gradient = cell(length,1);
     beta2z_gradient = cell(length,1);
+    beta_gradient = cell(length,1);
+    eta_gradient = cell(length,1);
     I_n = {eye(length)}; %I_n is an identity matrix sized N x N
     for l = 1:L
         beta2eta_gradient{l} = c_n{l} - z_n{l};
         beta2beta_gradient{l} = I_n;
         beta2c_gradient{l} = eta_n{l} * I_n;
         beta2z_gradient{l} = -eta_n{l} * I_n;
+        if (is_N)
+            beta_gradient{l} = x_next_gradient{l} * x_next2beta_gradient{l};
+        else
+            beta_gradient{l} = beta_next_gradient{l} * beta_next2beta_gradient{l} +...
+                z_next_gradient{l} * z_next2beta_gradient{l} + x_next_gradient{l} * x_next2beta_gradient{l};
+        end
+        eta_gradient{l} = beta_gradient{l} * beta2eta_gradient{l};
     end
 end

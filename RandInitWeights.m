@@ -17,13 +17,13 @@ function [net] = RandInitWeights(net)
     % initalize M layer to C layer weights
     for i = 1:size(net.D,1) 
         for j = 1:size(net.D,2)
-            net.D(i,j) = {dctmtx(net.image_length)};
+            net.D(i,j) = {dctmtx(net.image_row * net.image_col)};
         end
     end
     
     for i = 1:size(net.H,1)
         for j = 1:size(net.H,2)
-            net.H(i,j) = {dctmtx(net.image_length)};
+            net.H(i,j) = {dctmtx(net.image_row * net.image_col)};
         end
     end
     
@@ -38,5 +38,4 @@ function [net] = RandInitWeights(net)
             net.eta(i,j) = {0.01};
         end
     end
-    
 end

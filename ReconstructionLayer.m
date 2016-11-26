@@ -25,7 +25,7 @@ for l =1:L
     sum_2 = sum_2 + rho_n{l}*F*H_n{l}'*(last_z{l}-last_beta{l});
 end
 
-x_n = F' * ( P'*P + sum_1 )\( P'*y +sum_2); %get the X in this layer
+x_n = F' * inv( P'*P + sum_1 ) * ( P'*y +sum_2); %get the X in this layer
 %Tips:x,y are all vectors, because A is a N'*N matrix.
 %So x must be a N*1 vector and y must be a N'*1 vector, then Ax-y can be
 %meaningful
